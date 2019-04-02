@@ -74,11 +74,9 @@ INSERT INTO Places values (49 ,'Italia', null );
 INSERT INTO Places values (50 ,'Roma', 49 ); 
 INSERT INTO Places values (51 ,'Francia', null ); 
 INSERT INTO Places values (52 ,'París', 51 ); 
-INSERT INTO Places values (53 ,'España', null ); 
-INSERT INTO Places values (54 ,'Madrid', 53 ); 
-INSERT INTO Places values (55 ,'Inglaterra', null ); 
-INSERT INTO Places values (56 ,'Londres', 55 ); 
-INSERT INTO Places values (57 ,'Canadá', null ); 
-INSERT INTO Places values (58 ,'Ottawa', 57 ); 
+INSERT INTO Places values (53 ,'Inglaterra', null ); 
+INSERT INTO Places values (54 ,'Londres', 53 ); 
+INSERT INTO Places values (55 ,'Canadá', null ); 
+INSERT INTO Places values (56 ,'Ottawa', 55 ); 
 
 /**/
