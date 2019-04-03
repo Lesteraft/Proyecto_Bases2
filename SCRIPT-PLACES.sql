@@ -1,5 +1,5 @@
 
-/* CREACIÓN DE TABLA PLACES */
+/* CREACIï¿½N DE TABLA PLACES */
 USE [NORTHWND]
 GO
 SET ANSI_NULLS ON
@@ -21,7 +21,7 @@ CREATE TABLE [dbo].[Places] (
 GO
 
 
-/* SCRIP DE LA CREACIÓN DE LOS REGISTROS DE LA TABLA */
+/* SCRIP DE LA CREACIï¿½N DE LOS REGISTROS DE LA TABLA */
 INSERT INTO Places values (1 ,'Argentina', NULL ); 
 INSERT INTO Places values (25 ,'Buenos Aires', 1 ); 
 INSERT INTO Places values (2 ,'Belize', NULL ); 
@@ -31,9 +31,9 @@ INSERT INTO Places values (27 ,'Sucre', 3 );
 INSERT INTO Places values (4 ,'Chile', NULL ); 
 INSERT INTO Places values (28 ,'Santiago', 4 ); 
 INSERT INTO Places values (5 ,'Colombia', NULL ); 
-INSERT INTO Places values (29 ,'Bogotá', 5 ); 
+INSERT INTO Places values (29 ,'Bogota', 5 ); 
 INSERT INTO Places values (6 ,'Costa Rica', NULL ); 
-INSERT INTO Places values (30 ,'San José', 6 ); 
+INSERT INTO Places values (30 ,'San Jose', 6 ); 
 INSERT INTO Places values (7 ,'Cuba', NULL ); 
 INSERT INTO Places values (31 ,'Havana', 7 ); 
 INSERT INTO Places values (8 ,'Dominican Republic', NULL ); 
@@ -45,7 +45,7 @@ INSERT INTO Places values (34 ,'San Salvador', 10 );
 INSERT INTO Places values (11 ,'Equatorial Guinea', NULL ); 
 INSERT INTO Places values (35 ,'Malabo', 11 ); 
 INSERT INTO Places values (12 ,'Guam', NULL ); 
-INSERT INTO Places values (36 ,'Hagåtña', 12 ); 
+INSERT INTO Places values (36 ,'Hagania', 12 ); 
 INSERT INTO Places values (13 ,'Guatemala', NULL ); 
 INSERT INTO Places values (37 ,'Guatemala City', 13 ); 
 INSERT INTO Places values (14 ,'Honduras', NULL ); 
@@ -57,7 +57,7 @@ INSERT INTO Places values (40 ,'Managua', 16 );
 INSERT INTO Places values (17 ,'Panama', NULL ); 
 INSERT INTO Places values (41 ,'Panama City', 17 ); 
 INSERT INTO Places values (18 ,'Paraguay', NULL ); 
-INSERT INTO Places values (42 ,'Asunción', 18 ); 
+INSERT INTO Places values (42 ,'Asuncion', 18 ); 
 INSERT INTO Places values (19 ,'Peru', NULL ); 
 INSERT INTO Places values (43 ,'Lima', 19 ); 
 INSERT INTO Places values (20 ,'Puerto Rico', NULL ); 
@@ -69,14 +69,14 @@ INSERT INTO Places values (46 ,'Montevideo', 22 );
 INSERT INTO Places values (23 ,'Venezuela', NULL ); 
 INSERT INTO Places values (47 ,'Caracas', 23 ); 
 INSERT INTO Places values (24 ,'Western Sahara', NULL ); 
-INSERT INTO Places values (48 ,'El Aaiún', 24 ); 
+INSERT INTO Places values (48 ,'El Aaion', 24 ); 
 INSERT INTO Places values (49 ,'Italia', null ); 
 INSERT INTO Places values (50 ,'Roma', 49 ); 
 INSERT INTO Places values (51 ,'Francia', null ); 
-INSERT INTO Places values (52 ,'París', 51 ); 
+INSERT INTO Places values (52 ,'Paris', 51 ); 
 INSERT INTO Places values (53 ,'Inglaterra', null ); 
 INSERT INTO Places values (54 ,'Londres', 53 ); 
-INSERT INTO Places values (55 ,'Canadá', null ); 
+INSERT INTO Places values (55 ,'Canada', null ); 
 INSERT INTO Places values (56 ,'Ottawa', 55 ); 
 
 /**/
