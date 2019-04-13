@@ -1,14 +1,6 @@
 
 SELECT ProductID,
-      ProductName,
-      SupplierID,
-      CategoryID,
-      QuantityPerUnit,
-      UnitPrice,
-      UnitsInStock,
-      UnitsOnOrder,
-      ReorderLevel,
-      Discontinued
+      ProductName
   FROM Products;
-
+  --CORRECION CAMPOS SOLICITADOS
 
