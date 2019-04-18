@@ -1,0 +1,422 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "name": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND",
+        "connectionString": "Provider=SQLNCLI11;Data Source=DESKTOP-RQDTPHQ;Initial Catalog=DW_NORTHWIND;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "lesteraft@outlook.com",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_CLIENTES",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CustomerID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "CompanyName",
+            "dataType": "string",
+            "sourceColumn": "CompanyName",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CLIENTES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] ",
+              "dataSource": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CLIENTES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_EMPLOYEES",
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "EmployeeID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Nombre_Empleado",
+            "dataType": "string",
+            "sourceColumn": "Nombre_Empleado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_EMPLOYEES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_EMPLOYEES].* FROM [dbo].[DIM_EMPLOYEES] ",
+              "dataSource": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_EMPLOYEES].* FROM [dbo].[DIM_EMPLOYEES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_EMPLOYEES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_LUGARES",
+        "columns": [
+          {
+            "name": "TerritoryID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TerritoryID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "TerritoryDescription",
+            "dataType": "string",
+            "sourceColumn": "TerritoryDescription",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_LUGARES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_LUGARES].* FROM [dbo].[DIM_LUGARES] ",
+              "dataSource": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_LUGARES].* FROM [dbo].[DIM_LUGARES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_LUGARES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PRODUCTOS",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ProductName",
+            "dataType": "string",
+            "sourceColumn": "ProductName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PRODUCTOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PRODUCTOS].* FROM [dbo].[DIM_PRODUCTOS] ",
+              "dataSource": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PRODUCTOS].* FROM [dbo].[DIM_PRODUCTOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PRODUCTOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_TIEMPO",
+        "columns": [
+          {
+            "name": "TiempoID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TiempoID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "FechaOrder",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaOrder",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Año",
+            "dataType": "int64",
+            "sourceColumn": "Año",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre",
+            "dataType": "int64",
+            "sourceColumn": "Trimestre",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes",
+            "dataType": "int64",
+            "sourceColumn": "Mes",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana",
+            "dataType": "int64",
+            "sourceColumn": "Semana",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Dia",
+            "dataType": "string",
+            "sourceColumn": "Dia",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_TIEMPO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_TIEMPO].* FROM [dbo].[DIM_TIEMPO] ",
+              "dataSource": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_TIEMPO].* FROM [dbo].[DIM_TIEMPO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_TIEMPO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "TABLA_HECHOS",
+        "columns": [
+          {
+            "name": "HechosID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "HechosID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "ProductID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "EmployeeID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "EmployeeID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "TerritoryID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TerritoryID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CustomerID",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TiempoID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "TiempoID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "OrderID",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "OrderID",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Vent_Total",
+            "dataType": "double",
+            "sourceColumn": "Vent_Total",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TABLA_HECHOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[TABLA_HECHOS].* FROM [dbo].[TABLA_HECHOS] ",
+              "dataSource": "SqlServer DESKTOP-RQDTPHQ DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[TABLA_HECHOS].* FROM [dbo].[TABLA_HECHOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "TABLA_HECHOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "c97f10ff-8198-4924-b180-e3e89de78deb",
+        "fromTable": "TABLA_HECHOS",
+        "fromColumn": "CustomerID",
+        "toTable": "DIM_CLIENTES",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "425f81dd-b6cf-4825-8774-32ea711082ac",
+        "fromTable": "TABLA_HECHOS",
+        "fromColumn": "EmployeeID",
+        "toTable": "DIM_EMPLOYEES",
+        "toColumn": "EmployeeID"
+      },
+      {
+        "name": "50c09e68-2bac-481b-9511-f811e6031b98",
+        "fromTable": "TABLA_HECHOS",
+        "fromColumn": "TerritoryID",
+        "toTable": "DIM_LUGARES",
+        "toColumn": "TerritoryID"
+      },
+      {
+        "name": "eb26984d-ac20-4413-bbde-13557f802384",
+        "fromTable": "TABLA_HECHOS",
+        "fromColumn": "ProductID",
+        "toTable": "DIM_PRODUCTOS",
+        "toColumn": "ProductID"
+      },
+      {
+        "name": "d2429004-0092-4a13-afe5-dbe08d10bab1",
+        "fromTable": "TABLA_HECHOS",
+        "fromColumn": "TiempoID",
+        "toTable": "DIM_TIEMPO",
+        "toColumn": "TiempoID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

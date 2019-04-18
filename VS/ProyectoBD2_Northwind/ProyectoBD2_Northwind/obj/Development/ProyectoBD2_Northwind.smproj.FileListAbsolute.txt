@@ -1,0 +1,7 @@
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\bin\Model.asdatabase
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\bin\Model.deploymenttargets
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\bin\Model.deploymentoptions
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\obj\Development\ProyectoBD2_Northwind.smproj.CoreCompileInputs.cache
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\obj\Development\Model.asdatabase
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\obj\Development\Model.deploymentoptions
+C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\ProyectoBD2_Northwind\ProyectoBD2_Northwind\obj\Development\Model.deploymenttargets
