@@ -94,3 +94,6 @@ GROUP BY	[orders].OrderID,
 			[Employees].EmployeeID,
 			[EmployeeTerritories].TerritoryID,
 			[Customers].CustomerID;
+
+
+
