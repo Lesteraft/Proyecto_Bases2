@@ -9,9 +9,10 @@ FROM Employees;
 -------------------------------------------
 
 
--------------SQL DIMENSION EMPLEADOS
+-------------SQL DIMENSION CLIENTES
 
-SELECT	CustomerID,
+SELECT	ROW_NUMBER() OVER(ORDER BY CustomerID ASC) as ClienteID,
+		CustomerID,
 		CompanyName,
 		City,
 		Country 
@@ -42,7 +43,7 @@ SELECT ProductID,
 -------------SQL DIMENSION TIEMPO
 
 --Se obtine la fecha por detalle de orden que corresponde a la fecha por producto vendido.
-SELECT	ROW_NUMBER() OVER(ORDER BY OrderDate ASC) TimeID,
+SELECT	[orders].OrderID TimeID,
 		CONVERT(DATE, OrderDate) FechaOrden, 
 		DATEPART(YEAR, OrderDate) Año, 
 		DATEPART(MONTH, OrderDate) Mes,
@@ -56,11 +57,8 @@ INNER JOIN Shippers
 ON Orders.ShipVia=Shippers.ShipperID 
 INNER JOIN Products 
 ON Products.ProductID=[Order Details].ProductID
-GROUP BY	Orders.OrderID, 
-			Orders.EmployeeID, 
-			Shippers.ShipperID, 
-			Products.ProductID,
-			OrderDate,
+WHERE [ORDERS].OrderID = 10248
+GROUP BY	Orders.OrderID,
 			CONVERT(DATE,OrderDate), 
 			DATEPART(YEAR, OrderDate), 
 			DATEPART(MONTH, OrderDate), 
@@ -68,13 +66,19 @@ GROUP BY	Orders.OrderID,
 			DATEPART(QUARTER, OrderDate), 
 			DATENAME(WEEKDAY, OrderDate);
 
+
+SELECT ORDERS.ORDERID FROM ORDERS
+INNER JOIN [Order Details]
+ON [ORDERS].OrderID = [Order Details].OrderID
+GROUP BY ORDERS.OrderID;
 -------------------------------------------
 
 
 -------------SQL TABLA HECHOS
 
-Select	[orders].OrderID,
-		[orders].OrderID as FechaID,
+Select	ROW_NUMBER() OVER(ORDER BY [orders].OrderID ASC) as HechosID,
+		[orders].OrderID,
+		[orders].OrderID as TimeID,
 		[Order Details].ProductID,
 		[Employees].EmployeeID,
 		[EmployeeTerritories].TerritoryID,
@@ -96,4 +100,6 @@ GROUP BY	[orders].OrderID,
 			[Customers].CustomerID;
 
 
+
+SELECT * FROM ORDERS WHERE OrderID = 10248;
 

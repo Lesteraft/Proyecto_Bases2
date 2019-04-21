@@ -91,7 +91,7 @@ AS
 						else 'RRHH'
 
 					END;
-		INSERT INTO Employees (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, City, Region, PostalCode, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath)
+		INSERT INTO Employees (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, [Address], City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath)
 		VALUES (@apellido, @nombre, @cargo, 'Mr',convert(datetime,'18-06-18 10:34:09 PM',5), convert(datetime,'18-06-18 10:34:09 PM',5), @lugar, @ciudad, 'WA', 11011, 'HN', '123456789', 4567, 'PHOTO','Graduated', 2, 'http://accweb/emmployees/davolio.bmp');
 		SET @count =  @count + 1;
 	END;

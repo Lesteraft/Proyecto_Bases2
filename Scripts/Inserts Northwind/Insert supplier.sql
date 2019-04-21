@@ -285,6 +285,7 @@ Morazán'
 
 GO
 
+select * from Suppliers;
 
 
 
