@@ -1,0 +1,2717 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/21/2019 10:27:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-RQDTPHQ"
+  DTS:CreatorName="DESKTOP-RQDTPHQ\LesterPC"
+  DTS:DTSID="{E2C921B6-EC76-4C57-89C9-09EEEA34006C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{D703B70F-0374-43D7-AA61-41A5EF593D09}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{93E65DDD-B521-476D-B3E5-84EB6205B8D5}"
+      DTS:ObjectName="DESKTOP-RQDTPHQ.NORTHWIND">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-RQDTPHQ;Initial Catalog=NORTHWIND;Integrated Security=True;Application Name=SSIS-Package-{93E65DDD-B521-476D-B3E5-84EB6205B8D5}DESKTOP-RQDTPHQ.NORTHWIND;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C69BC23E-3A7F-463B-B27A-854197BD775C}"
+      DTS:ObjectName="DESKTOP-RQDTPHQ.NorthwindDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-RQDTPHQ;Initial Catalog=NorthwindDW;Integrated Security=True;Application Name=SSIS-Package-{C69BC23E-3A7F-463B-B27A-854197BD775C}DESKTOP-RQDTPHQ.NorthwindDW;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Northwind - DW_Northwind"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{662C2170-72A0-4758-9DE8-FFD065FE821A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Northwind - DW_Northwind"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Northwind - DW_Northwind\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Conversión de datos 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Inputs[Entrada de conversión de datos].Columns[Dia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Dia"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Dia]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de conversión de datos].Columns[Dia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de conversión de datos].Columns[Dia]"
+                      name="Dia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Dia]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1 1 1 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Inputs[Entrada de conversión de datos]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 1 1 1 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Inputs[Entrada de conversión de datos]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Conversión de datos 2"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 2.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 2.Inputs[Entrada de conversión de datos]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Conversión de datos 2.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\DIM_Clientes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_Clientes"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_Cliente"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\DIM_Clientes.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET].Columns[CompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET].ExternalColumns[CompanyName]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET].ExternalColumns[CustomeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].Columns[CustomerID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET].ExternalColumns[CustomeID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomeID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="50"
+                      name="CompanyName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\DIM_Clientes.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Clientes.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Clientes.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Clientes.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Clientes.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\DIM_Empleados"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_Empleados"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_Empleados"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\DIM_Empleados.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET].Columns[Nombre_Empleado]"
+                      cachedDataType="wstr"
+                      cachedLength="31"
+                      cachedName="Nombre_Empleado"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre_Empleado]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].Columns[Nombre_Empleado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET].ExternalColumns[EmployeeID]"
+                      dataType="numeric"
+                      name="EmployeeID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre_Empleado]"
+                      dataType="wstr"
+                      length="50"
+                      name="Nombre_Empleado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\DIM_Empleados.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Empleados.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Empleados.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Empleados.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Empleados.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\DIM_Fechas"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_Fechas"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_Fechas"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\DIM_Fechas.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[Año]"
+                      cachedDataType="i4"
+                      cachedName="Año"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Año]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Año]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[Mes]"
+                      cachedDataType="i4"
+                      cachedName="Mes"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Mes]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Mes]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[Trimestre]"
+                      cachedDataType="i4"
+                      cachedName="Trimestre"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Trimestre]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Trimestre]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[Semana]"
+                      cachedDataType="i4"
+                      cachedName="Semana"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Semana]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Semana]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[TimeID]"
+                      cachedDataType="i4"
+                      cachedName="TimeID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[TimeID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[FechaOrden]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaOrden"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaOrder]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[FechaOrden]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].Columns[Dia]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Dia"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Dia]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Dia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaID]"
+                      dataType="numeric"
+                      name="FechaID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaOrder]"
+                      dataType="dbTimeStamp"
+                      name="FechaOrder" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Año]"
+                      dataType="numeric"
+                      name="Año"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Trimestre]"
+                      dataType="numeric"
+                      name="Trimestre"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Mes]"
+                      dataType="numeric"
+                      name="Mes"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Semana]"
+                      dataType="numeric"
+                      name="Semana"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET].ExternalColumns[Dia]"
+                      dataType="wstr"
+                      length="30"
+                      name="Dia" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\DIM_Fechas.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Fechas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Fechas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Fechas.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\DIM_Lugares"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_Lugares"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_Lugares"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\DIM_Lugares.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET].Columns[TerritoryID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET].Columns[TerritoryDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="TerritoryDescription"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET].ExternalColumns[TerritoryDescription]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].Columns[TerritoryDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET].ExternalColumns[TerritoryID]"
+                      dataType="numeric"
+                      name="TerritoryID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET].ExternalColumns[TerritoryDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="TerritoryDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\DIM_Lugares.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Lugares.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Lugares.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Lugares.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Lugares.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\DIM_Productos"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_Productos"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_Productos"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\DIM_Productos.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductName]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].Columns[ProductName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      dataType="numeric"
+                      name="ProductID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\DIM_Productos.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Productos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Productos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\DIM_Productos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\DIM_Productos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Hechos"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Hechos"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Hechos"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Hechos.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NorthwindDW]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[OrderID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[TerritoryID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[CustomerID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[CustomerID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[VENTA_TOTAL]"
+                      cachedDataType="r8"
+                      cachedName="VENTA_TOTAL"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[Venta_Total]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[VENTA_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].Columns[TimeID]"
+                      cachedDataType="i4"
+                      cachedName="TimeID"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[TimeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[HechosID]"
+                      dataType="numeric"
+                      name="HechosID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[OrderID]"
+                      dataType="numeric"
+                      name="OrderID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      dataType="numeric"
+                      name="ProductID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[EmployeeID]"
+                      dataType="numeric"
+                      name="EmployeeID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaID]"
+                      dataType="numeric"
+                      name="FechaID"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[Venta_Total]"
+                      dataType="numeric"
+                      name="Venta_Total"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET].ExternalColumns[TerritoryID]"
+                      dataType="numeric"
+                      name="TerritoryID"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Hechos.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Hechos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Hechos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Hechos.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Northwind - Customers"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Northwind - Customers"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT	CustomerID,
+		CompanyName
+FROM Customers;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Northwind - Customers.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].Columns[CompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].ExternalColumns[CompanyName]"
+                      length="40"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Northwind - Employees"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Northwind - Employees"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT	EmployeeID,
+		CONCAT(FirstName, ' ', LastName) As Nombre_Empleado
+FROM Employees;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Northwind - Employees.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].Columns[Nombre_Empleado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].ExternalColumns[Nombre_Empleado]"
+                      length="31"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].Columns[Nombre_Empleado]"
+                      name="Nombre_Empleado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET].ExternalColumns[Nombre_Empleado]"
+                      dataType="wstr"
+                      length="31"
+                      name="Nombre_Empleado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[Nombre_Empleado]"
+                      dataType="wstr"
+                      length="31"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[Nombre_Empleado]"
+                      name="Nombre_Empleado" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Northwind - Fechas"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Northwind - Fechas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--Se obtine la fecha por detalle de orden que corresponde a la fecha por producto vendido.
+SELECT	[orders].OrderID TimeID,
+		CONVERT(DATE, OrderDate) FechaOrden, 
+		DATEPART(YEAR, OrderDate) Año, 
+		DATEPART(MONTH, OrderDate) Mes,
+		DATEPART(QUARTER, OrderDate) Trimestre,
+		DATEPART(WEEK, OrderDate) Semana, 
+		DATENAME(WEEKDAY, OrderDate) Dia
+FROM Orders 
+INNER JOIN [Order Details] 
+ON Orders.OrderID=[Order Details].OrderID 
+INNER JOIN Shippers 
+ON Orders.ShipVia=Shippers.ShipperID 
+INNER JOIN Products 
+ON Products.ProductID=[Order Details].ProductID
+GROUP BY	Orders.OrderID,
+			CONVERT(DATE,OrderDate), 
+			DATEPART(YEAR, OrderDate), 
+			DATEPART(MONTH, OrderDate), 
+			DATEPART(WEEK, OrderDate), 
+			DATEPART(QUARTER, OrderDate), 
+			DATENAME(WEEKDAY, OrderDate);</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[TimeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[TimeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[TimeID]"
+                      name="TimeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[FechaOrden]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaOrden]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[FechaOrden]"
+                      name="FechaOrden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Año]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Año]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Año]"
+                      name="Año"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Mes]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Mes]"
+                      name="Mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Trimestre]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Trimestre]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Trimestre]"
+                      name="Trimestre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Semana]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Semana]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Semana]"
+                      name="Semana"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Dia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Dia]"
+                      length="30"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].Columns[Dia]"
+                      name="Dia"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[TimeID]"
+                      dataType="i4"
+                      name="TimeID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaOrden]"
+                      dataType="dbDate"
+                      name="FechaOrden" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Año]"
+                      dataType="i4"
+                      name="Año" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Mes]"
+                      dataType="i4"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Trimestre]"
+                      dataType="i4"
+                      name="Trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Semana]"
+                      dataType="i4"
+                      name="Semana" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET].ExternalColumns[Dia]"
+                      dataType="wstr"
+                      length="30"
+                      name="Dia" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[TimeID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[TimeID]"
+                      name="TimeID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[FechaOrden]"
+                      dataType="dbDate"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[FechaOrden]"
+                      name="FechaOrden" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Año]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Año]"
+                      name="Año" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Mes]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Mes]"
+                      name="Mes" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Trimestre]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Trimestre]"
+                      name="Trimestre" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Semana]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Semana]"
+                      name="Semana" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Dia]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[Dia]"
+                      name="Dia" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Northwind - Orders"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Northwind - Orders"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select	ROW_NUMBER() OVER(ORDER BY [orders].OrderID ASC) as HechosID,
+		[orders].OrderID,
+		[orders].OrderID as TimeID,
+		[Order Details].ProductID,
+		[Employees].EmployeeID,
+		[EmployeeTerritories].TerritoryID,
+		[Customers].CustomerID,
+		round(SUM([Order Details].Quantity*[Order Details].UnitPrice*(1-[Order Details].Discount)), 2) VENTA_TOTAL
+FROM [ORDERS]
+INNER JOIN [Order Details] 
+ON [Order Details].OrderID = [ORDERS].OrderID
+INNER JOIN [Employees]
+ON [Employees].EmployeeID = [ORDERS].EmployeeID
+INNER JOIN [EmployeeTerritories]
+ON [EmployeeTerritories].EMPLOYEEID = [EMPLOYEES].EMPLOYEEID
+INNER JOIN [CUSTOMERS] 
+ON [CUSTOMERS].CustomerID = [Orders].CustomerID
+GROUP BY	[orders].OrderID,
+			[Order Details].ProductID,
+			[Employees].EmployeeID,
+			[EmployeeTerritories].TerritoryID,
+			[Customers].CustomerID;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Northwind - Orders.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[HechosID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[HechosID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[HechosID]"
+                      name="HechosID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[OrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[OrderID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[TimeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[TimeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[TimeID]"
+                      name="TimeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[TerritoryID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[TerritoryID]"
+                      length="20"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[CustomerID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[VENTA_TOTAL]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[VENTA_TOTAL]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].Columns[VENTA_TOTAL]"
+                      name="VENTA_TOTAL"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[HechosID]"
+                      dataType="i8"
+                      name="HechosID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[TimeID]"
+                      dataType="i4"
+                      name="TimeID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[TerritoryID]"
+                      dataType="wstr"
+                      length="20"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET].ExternalColumns[VENTA_TOTAL]"
+                      dataType="r8"
+                      name="VENTA_TOTAL" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[HechosID]"
+                      dataType="i8"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[HechosID]"
+                      name="HechosID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[TimeID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[TimeID]"
+                      name="TimeID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[TerritoryID]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[VENTA_TOTAL]"
+                      dataType="r8"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[VENTA_TOTAL]"
+                      name="VENTA_TOTAL" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Northwind - Places"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Northwind - Places"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT	TerritoryID,
+		TerritoryDescription	
+From Territories;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Northwind - Places.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].Columns[TerritoryID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].ExternalColumns[TerritoryID]"
+                      length="20"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].Columns[TerritoryDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].ExternalColumns[TerritoryDescription]"
+                      length="50"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].Columns[TerritoryDescription]"
+                      name="TerritoryDescription"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].ExternalColumns[TerritoryID]"
+                      dataType="wstr"
+                      length="20"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET].ExternalColumns[TerritoryDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="TerritoryDescription" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[TerritoryID]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[TerritoryDescription]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[TerritoryDescription]"
+                      name="TerritoryDescription" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Northwind - DW_Northwind\Northwind - Products"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Northwind - Products"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ProductID,
+      ProductName
+  FROM Products;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Northwind - DW_Northwind\Northwind - Products.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RQDTPHQ.NORTHWIND]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductName]"
+                      length="40"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos]"
+              endId="Package\Northwind - DW_Northwind\DIM_Productos.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Northwind - DW_Northwind\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos1]"
+              endId="Package\Northwind - DW_Northwind\DIM_Clientes.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Northwind - DW_Northwind\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos2]"
+              endId="Package\Northwind - DW_Northwind\DIM_Empleados.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Northwind - DW_Northwind\Conversión de datos 2.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos3]"
+              endId="Package\Northwind - DW_Northwind\DIM_Fechas.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos4]"
+              endId="Package\Northwind - DW_Northwind\DIM_Lugares.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos5]"
+              endId="Package\Northwind - DW_Northwind\Hechos.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de conversión de datos"
+              startId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET]"
+              endId="Package\Northwind - DW_Northwind\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Northwind - DW_Northwind\Northwind - Products.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET1]"
+              endId="Package\Northwind - DW_Northwind\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Northwind - DW_Northwind\Northwind - Customers.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET2]"
+              endId="Package\Northwind - DW_Northwind\Conversión de datos 2.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Northwind - DW_Northwind\Northwind - Employees.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET3]"
+              endId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Northwind - DW_Northwind\Northwind - Fechas.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET4]"
+              endId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Northwind - DW_Northwind\Northwind - Places.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET5]"
+              endId="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Northwind - DW_Northwind\Northwind - Orders.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Northwind - DW_Northwind"
+          TopLeft="79.428572781232,94.2117660271668" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Northwind - DW_Northwind">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Northwind - Products"
+          TopLeft="52.5714294667147,11.6235295747803" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Conversión de datos"
+          TopLeft="51.7142865949748,62.2470596965209" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Northwind - DW_Northwind\DIM_Productos"
+          TopLeft="43.2857150228656,128.776472394277" />
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET]"
+          TopLeft="230.971429466715,32.4235295747803">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-4.85714287173994,50.6235301217406"
+              Start="0,0"
+              End="2.64285712826006,50.6235301217406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,46.6235301217406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,46.6235301217406"
+                    Point2="22.5,50.6235301217406"
+                    Point3="18.5,50.6235301217406" />
+                  <mssgle:LineSegment
+                    End="2.64285712826006,50.6235301217406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos]"
+          TopLeft="138.914286594975,103.847059696521">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.4285715721091,24.9294126977557"
+              Start="0,0"
+              End="-20.4285715721091,17.4294126977557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.46470634887785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.46470634887785"
+                    Point2="0,12.4647063488779"
+                    Point3="-4,12.4647063488779" />
+                  <mssgle:LineSegment
+                    End="-16.4285715721091,12.4647063488779" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.4285715721091,12.4647063488779"
+                    Point2="-20.4285715721091,12.4647063488779"
+                    Point3="-20.4285715721091,16.4647063488779" />
+                  <mssgle:LineSegment
+                    End="-20.4285715721091,17.4294126977557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Northwind - DW_Northwind\Northwind - Customers"
+          TopLeft="306.114286867453,9.63529425277843" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Conversión de datos 1"
+          TopLeft="324.114287173991,68.6705891983733" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Northwind - DW_Northwind\DIM_Clientes"
+          TopLeft="326.542858643922,135.200001896129" />
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET1]"
+          TopLeft="306.114286867453,30.4352942527784">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.0000003065383,59.0352949455948"
+              Start="0,0"
+              End="10.5000003065383,59.0352949455948">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,55.0352949455948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,55.0352949455948"
+                    Point2="-22.5,59.0352949455948"
+                    Point3="-18.5,59.0352949455948" />
+                  <mssgle:LineSegment
+                    End="10.5000003065383,59.0352949455948" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos1]"
+          TopLeft="411.314287173991,110.270589198373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.3714285300698,24.9294126977554"
+              Start="0,0"
+              End="-14.3714285300698,17.4294126977554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.4647063488777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.4647063488777"
+                    Point2="0,12.4647063488777"
+                    Point3="-4,12.4647063488777" />
+                  <mssgle:LineSegment
+                    End="-10.3714285300698,12.4647063488777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.3714285300698,12.4647063488777"
+                    Point2="-14.3714285300698,12.4647063488777"
+                    Point3="-14.3714285300698,16.4647063488777" />
+                  <mssgle:LineSegment
+                    End="-14.3714285300698,17.4294126977554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Northwind - DW_Northwind\Northwind - Employees"
+          TopLeft="540.457143791355,7.80000010939206" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Northwind - DW_Northwind\Conversión de datos 2"
+          TopLeft="547.742858201144,57.6588243380551" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Northwind - DW_Northwind\DIM_Empleados"
+          TopLeft="564.457144200072,122.658825249655" />
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET2]"
+          TopLeft="540.457143791355,28.6000001093921">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="7.28571440978908,49.858824228663"
+              Start="0,0"
+              End="-0.21428559021092,49.858824228663">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45.858824228663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45.858824228663"
+                    Point2="-22.5,49.858824228663"
+                    Point3="-18.5,49.858824228663" />
+                  <mssgle:LineSegment
+                    End="-0.21428559021092,49.858824228663" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos2]"
+          TopLeft="640.500001200608,99.2588243380551">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.4000009115998"
+              Start="0,0"
+              End="0,15.9000009115998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9000009115998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Northwind - DW_Northwind\Northwind - Fechas"
+          TopLeft="775.600000715256,11.6235295747803" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1"
+          TopLeft="773.600000681196,66.8352950549869" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Northwind - DW_Northwind\DIM_Fechas"
+          TopLeft="781.742857962725,133.364707752742" />
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET3]"
+          TopLeft="775.600000715256,32.4235295747803">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-2.00000003405978,55.2117654802066"
+              Start="0,0"
+              End="-9.50000003405978,55.2117654802066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.5000000340598,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5000000340598,0"
+                    Point2="-24.5000000340598,0"
+                    Point3="-24.5000000340598,4" />
+                  <mssgle:LineSegment
+                    End="-24.5000000340598,51.2117654802066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.5000000340598,51.2117654802066"
+                    Point2="-24.5000000340598,55.2117654802066"
+                    Point3="-20.5000000340598,55.2117654802066" />
+                  <mssgle:LineSegment
+                    End="-9.50000003405978,55.2117654802066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos3]"
+          TopLeft="860.800000681196,108.435295054987">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.057142718471,24.9294126977551"
+              Start="0,0"
+              End="-11.057142718471,17.4294126977551">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.46470634887756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.46470634887756"
+                    Point2="0,12.4647063488776"
+                    Point3="-4,12.4647063488776" />
+                  <mssgle:LineSegment
+                    End="-7.05714271847103,12.4647063488776" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.05714271847103,12.4647063488776"
+                    Point2="-11.057142718471,12.4647063488776"
+                    Point3="-11.057142718471,16.4647063488776" />
+                  <mssgle:LineSegment
+                    End="-11.057142718471,17.4294126977551" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Northwind - Places"
+          TopLeft="45.2857150569254,236.800001896129" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 1"
+          TopLeft="43.2857150228656,292.011767376335" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Northwind - DW_Northwind\DIM_Lugares"
+          TopLeft="51.4285723043946,358.541180074091" />
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos4]"
+          TopLeft="130.485715022866,333.611767376335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.65714271847098,24.9294126977554"
+              Start="0,0"
+              End="-8.65714271847098,17.4294126977554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.46470634887768" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.46470634887768"
+                    Point2="0,12.4647063488777"
+                    Point3="-4,12.4647063488777" />
+                  <mssgle:LineSegment
+                    End="-4.65714271847098,12.4647063488777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.65714271847098,12.4647063488777"
+                    Point2="-8.65714271847098,12.4647063488777"
+                    Point3="-8.65714271847098,16.4647063488777" />
+                  <mssgle:LineSegment
+                    End="-8.65714271847098,17.4294126977554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Northwind - DW_Northwind\Northwind - Orders"
+          TopLeft="299.5714336731,229.20000036464" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Northwind - DW_Northwind\Conversión de datos 1 1 1 2"
+          TopLeft="297.57143363904,284.411765844846" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Northwind - DW_Northwind\Hechos"
+          TopLeft="305.714290920569,350.941178542602" />
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de conversión de datos5]"
+          TopLeft="384.77143363904,326.011765844846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.657142718471,24.9294126977553"
+              Start="0,0"
+              End="-22.657142718471,17.4294126977553">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.46470634887766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.46470634887766"
+                    Point2="0,12.4647063488777"
+                    Point3="-4,12.4647063488777" />
+                  <mssgle:LineSegment
+                    End="-18.657142718471,12.4647063488777" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.657142718471,12.4647063488777"
+                    Point2="-22.657142718471,12.4647063488777"
+                    Point3="-22.657142718471,16.4647063488777" />
+                  <mssgle:LineSegment
+                    End="-22.657142718471,17.4294126977553" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET4]"
+          TopLeft="45.2857150569254,257.600001896129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-2.00000003405981,55.2117654802066"
+              Start="0,0"
+              End="-9.50000003405981,55.2117654802066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.5000000340598,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5000000340598,0"
+                    Point2="-24.5000000340598,0"
+                    Point3="-24.5000000340598,4" />
+                  <mssgle:LineSegment
+                    End="-24.5000000340598,51.2117654802066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.5000000340598,51.2117654802066"
+                    Point2="-24.5000000340598,55.2117654802066"
+                    Point3="-20.5000000340598,55.2117654802066" />
+                  <mssgle:LineSegment
+                    End="-9.50000003405981,55.2117654802066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Northwind - DW_Northwind.Paths[Salida de origen de ADO NET5]"
+          TopLeft="299.5714336731,250.00000036464">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-2.00000003405972,55.2117654802066"
+              Start="0,0"
+              End="-9.50000003405972,55.2117654802066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.5000000340597,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5000000340597,0"
+                    Point2="-24.5000000340597,0"
+                    Point3="-24.5000000340597,4" />
+                  <mssgle:LineSegment
+                    End="-24.5000000340597,51.2117654802066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.5000000340597,51.2117654802066"
+                    Point2="-24.5000000340597,55.2117654802066"
+                    Point3="-20.5000000340597,55.2117654802066" />
+                  <mssgle:LineSegment
+                    End="-9.50000003405972,55.2117654802066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Northwind - Products">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\DIM_Productos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Northwind - Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\DIM_Clientes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Northwind - Employees">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\DIM_Empleados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Northwind - Fechas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\DIM_Fechas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Northwind - Places">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\DIM_Lugares">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Northwind - Orders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Northwind - DW_Northwind\Hechos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
