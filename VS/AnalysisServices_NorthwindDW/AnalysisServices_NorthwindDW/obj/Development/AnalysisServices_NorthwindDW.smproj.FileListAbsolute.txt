@@ -1,7 +1,0 @@
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\bin\Model.asdatabase
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\bin\Model.deploymenttargets
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\bin\Model.deploymentoptions
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\obj\Development\AnalysisServices_NorthwindDW.smproj.CoreCompileInputs.cache
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\obj\Development\Model.asdatabase
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\obj\Development\Model.deploymentoptions
-C:\Users\LesterPC.DESKTOP-RQDTPHQ\source\repos\AnalysisServices_NorthwindDW\AnalysisServices_NorthwindDW\obj\Development\Model.deploymenttargets
