@@ -1,0 +1,763 @@
+{
+  "name": "CUBO OLAP NORTHWIND",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND",
+        "connectionString": "Provider=SQLNCLI11;Data Source=DESKTOP-IVI69M9;Initial Catalog=DW_NORTHWIND;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "Oscar A",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "DIM_CLIENTES",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "string",
+            "sourceColumn": "CustomerID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CompanyName",
+            "dataType": "string",
+            "sourceColumn": "CompanyName",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CLIENTES",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] ",
+              "dataSource": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CLIENTES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_LUGAR",
+        "columns": [
+          {
+            "name": "TerritoryID",
+            "dataType": "int64",
+            "sourceColumn": "TerritoryID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TerritoryDescription",
+            "dataType": "string",
+            "sourceColumn": "TerritoryDescription",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_LUGAR",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DIM_LUGAR].* FROM [dbo].[DIM_LUGAR] ",
+              "dataSource": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_LUGAR].* FROM [dbo].[DIM_LUGAR] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_LUGAR"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_PRODUCTO",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ProductName",
+            "dataType": "string",
+            "sourceColumn": "ProductName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PRODUCTO",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DIM_PRODUCTO].* FROM [dbo].[DIM_PRODUCTO] ",
+              "dataSource": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PRODUCTO].* FROM [dbo].[DIM_PRODUCTO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PRODUCTO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "HECHOS_ORDERS",
+        "columns": [
+          {
+            "name": "HECHOSID",
+            "dataType": "int64",
+            "sourceColumn": "HECHOSID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "sourceColumn": "ProductID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EmpoyeeID",
+            "dataType": "int64",
+            "sourceColumn": "EmpoyeeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TerritoryID",
+            "dataType": "int64",
+            "sourceColumn": "TerritoryID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "string",
+            "sourceColumn": "CustomerID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TimeID",
+            "dataType": "int64",
+            "sourceColumn": "TimeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Venta_Total",
+            "dataType": "double",
+            "sourceColumn": "Venta_Total",
+            "sourceProviderType": "Numeric",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OrdersID",
+            "dataType": "int64",
+            "sourceColumn": "OrdersID",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "HECHOS_ORDERS",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[HECHOS_ORDERS].* FROM [dbo].[HECHOS_ORDERS] ",
+              "dataSource": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Sum of Venta_Total ",
+            "expression": "SUM([Venta_Total])"
+          },
+          {
+            "name": "Count of ProductID",
+            "expression": "COUNTA([ProductID])"
+          },
+          {
+            "name": "Count of OrdersID",
+            "expression": "COUNTA([OrdersID])"
+          },
+          {
+            "name": "Count of HECHOSID",
+            "expression": "COUNTA([HECHOSID])"
+          },
+          {
+            "name": "Count of CustomerID",
+            "expression": "COUNTA([CustomerID])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[HECHOS_ORDERS].* FROM [dbo].[HECHOS_ORDERS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "HECHOS_ORDERS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_EMPLEADOS",
+        "columns": [
+          {
+            "name": "EmployeeID",
+            "dataType": "int64",
+            "sourceColumn": "EmployeeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Nombre_Empleado",
+            "dataType": "string",
+            "sourceColumn": "Nombre_Empleado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_EMPLEADOS",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DIM_EMPLEADOS].* FROM [dbo].[DIM_EMPLEADOS] ",
+              "dataSource": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_EMPLEADOS].* FROM [dbo].[DIM_EMPLEADOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_EMPLEADOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DIM_TIEMPO",
+        "columns": [
+          {
+            "name": "TimeID",
+            "dataType": "int64",
+            "sourceColumn": "TimeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FechaOrden",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaOrden",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Año",
+            "dataType": "int64",
+            "sourceColumn": "Año",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Mes",
+            "dataType": "int64",
+            "sourceColumn": "Mes",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "dia",
+            "dataType": "string",
+            "sourceColumn": "dia",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Trimestre",
+            "dataType": "int64",
+            "sourceColumn": "Trimestre",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Semana",
+            "dataType": "int64",
+            "sourceColumn": "Semana",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_TIEMPO",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[DIM_TIEMPO].[TimeID],[dbo].[DIM_TIEMPO].[FechaOrden],[dbo].[DIM_TIEMPO].[Año],[dbo].[DIM_TIEMPO].[Mes],[dbo].[DIM_TIEMPO].[dia],[dbo].[DIM_TIEMPO].[Trimestre],[dbo].[DIM_TIEMPO].[Semana] FROM [dbo].[DIM_TIEMPO] ",
+              "dataSource": "SqlServer DESKTOP-IVI69M9 DW_NORTHWIND"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TimeID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FechaOrden</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Año</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>49</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mes</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>49</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>dia</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>44</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Trimestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>75</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>75</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semana</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>68</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TimeID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FechaOrden</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Año</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mes</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>dia</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Trimestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semana</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "measures": [
+          {
+            "name": "Count of Mes",
+            "expression": "COUNTA([Mes])"
+          },
+          {
+            "name": "Count of Año",
+            "expression": "COUNTA([Año])"
+          },
+          {
+            "name": "Count of Semana",
+            "expression": "COUNTA([Semana])"
+          },
+          {
+            "name": "Count of Trimestre",
+            "expression": "COUNTA([Trimestre])"
+          },
+          {
+            "name": "Count of dia",
+            "expression": "COUNTA([dia])"
+          },
+          {
+            "name": "Count of FechaOrden",
+            "expression": "COUNTA([FechaOrden])",
+            "formatString": "General Date"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_TIEMPO].[TimeID],[dbo].[DIM_TIEMPO].[FechaOrden],[dbo].[DIM_TIEMPO].[Año],[dbo].[DIM_TIEMPO].[Mes],[dbo].[DIM_TIEMPO].[dia],[dbo].[DIM_TIEMPO].[Trimestre],[dbo].[DIM_TIEMPO].[Semana] FROM [dbo].[DIM_TIEMPO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_TIEMPO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>TimeID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FechaOrden</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Año</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>49</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mes</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>49</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>dia</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>44</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Trimestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>75</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>75</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semana</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>68</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>TimeID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FechaOrden</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Año</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mes</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>dia</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Trimestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semana</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "a6a41115-6c55-4249-8321-4a34f0a6e93a",
+        "fromTable": "HECHOS_ORDERS",
+        "fromColumn": "CustomerID",
+        "toTable": "DIM_CLIENTES",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "49c631bc-0c55-43ea-81de-aa44ef40728a",
+        "fromTable": "HECHOS_ORDERS",
+        "fromColumn": "TerritoryID",
+        "toTable": "DIM_LUGAR",
+        "toColumn": "TerritoryID"
+      },
+      {
+        "name": "6e51158e-5cfb-4a4f-ad93-3dd4583144db",
+        "fromTable": "HECHOS_ORDERS",
+        "fromColumn": "ProductID",
+        "toTable": "DIM_PRODUCTO",
+        "toColumn": "ProductID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}

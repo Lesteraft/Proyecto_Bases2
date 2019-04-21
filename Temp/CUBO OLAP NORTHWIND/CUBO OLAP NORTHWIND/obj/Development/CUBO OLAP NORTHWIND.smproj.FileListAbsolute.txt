@@ -1,0 +1,7 @@
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\bin\Model.asdatabase
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\bin\Model.deploymenttargets
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\bin\Model.deploymentoptions
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\obj\Development\CUBO OLAP NORTHWIND.smproj.CoreCompileInputs.cache
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\obj\Development\Model.asdatabase
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\obj\Development\Model.deploymentoptions
+C:\Users\Oscar A\source\repos\CUBO OLAP NORTHWIND\CUBO OLAP NORTHWIND\obj\Development\Model.deploymenttargets
