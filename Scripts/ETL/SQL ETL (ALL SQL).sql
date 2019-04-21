@@ -1,4 +1,4 @@
--------------SQL DIMENSION EMPLEADOS O TRABAJADORES
+-------------SQL DIcMENSION EMPLEADOS O TRABAJADORES
 
 SELECT	EmployeeID,
 		CONCAT(FirstName, ' ', LastName) As Nombre_Empleado, 
@@ -13,7 +13,7 @@ FROM Employees;
 
 SELECT	ROW_NUMBER() OVER(ORDER BY CustomerID ASC) as ClienteID,
 		CustomerID,
-		CompanyName,
+		ContactName,
 		City,
 		Country 
 FROM Customers;
@@ -103,3 +103,5 @@ GROUP BY	[orders].OrderID,
 
 SELECT * FROM ORDERS WHERE OrderID = 10248;
 
+
+select * from Customers;

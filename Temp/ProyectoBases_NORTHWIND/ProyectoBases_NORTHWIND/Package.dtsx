@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{46293827-FB1F-40AE-9430-F0D6B07BA2AC}">
+  DTS:VersionBuild="91"
+  DTS:VersionGUID="{BF5DCAD6-2B36-4E31-92CB-71474742D125}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1502,7 +1502,6 @@ INNER JOIN Shippers
 ON Orders.ShipVia=Shippers.ShipperID 
 INNER JOIN Products 
 ON Products.ProductID=[Order Details].ProductID
-WHERE [ORDERS].OrderID = 10248
 GROUP BY	Orders.OrderID,
 			CONVERT(DATE,OrderDate), 
 			DATEPART(YEAR, OrderDate), 
@@ -2398,11 +2397,11 @@ GROUP BY	Orders.OrderID,
                       name="FechaOrden" />
                     <externalMetadataColumn
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input].ExternalColumns[Año]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Año" />
                     <externalMetadataColumn
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input].ExternalColumns[Mes]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Mes" />
                     <externalMetadataColumn
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input].ExternalColumns[dia]"
@@ -2412,15 +2411,15 @@ GROUP BY	Orders.OrderID,
                       name="dia" />
                     <externalMetadataColumn
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input].ExternalColumns[Trimestre]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Trimestre" />
                     <externalMetadataColumn
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input].ExternalColumns[Semestre]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Semestre" />
                     <externalMetadataColumn
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input].ExternalColumns[Semana]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Semana" />
                   </externalMetadataColumns>
                 </input>
@@ -2443,147 +2442,6 @@ GROUP BY	Orders.OrderID,
                       refId="Package\Dimensiones\DW_Dim_Tiempo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dimensiones\DW_Dim_Tiempo.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Dimensiones\Lookup"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DIM_TIEMPO]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DIM_TIEMPO]) [refTable]
-where [refTable].[TimeID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TimeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaOrden" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Año" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mes" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="dia" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Trimestre" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semestre" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semana" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Dimensiones\Data Conversion Tiempo.Outputs[Data Conversion Output].Columns[TimeID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Dimensiones\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-IVI69M9.DW_NORTHWIND]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-IVI69M9.DW_NORTHWIND]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Dimensiones\Lookup.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Dimensiones\Lookup.Inputs[Lookup Input].Columns[TimeID]"
-                      cachedDataType="i4"
-                      cachedName="TimeID"
-                      lineageId="Package\Dimensiones\Data Conversion Tiempo.Outputs[Data Conversion Output].Columns[TimeID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">TimeID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Dimensiones\Lookup.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Dimensiones\Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Dimensiones\Lookup.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Dimensiones\Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Dimensiones\Lookup.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Dimensiones\Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Dimensiones\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Dimensiones\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Dimensiones\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Dimensiones\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3150,6 +3008,147 @@ where [refTable].[ProductID] = ?</property>
                       refId="Package\Dimensiones\Lookup Producto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dimensiones\Lookup Producto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensiones\Lookup Tiempo"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Tiempo"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DIM_TIEMPO]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DIM_TIEMPO]) [refTable]
+where [refTable].[TimeID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TimeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaOrden" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Año" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mes" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="dia" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Trimestre" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semestre" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semana" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Dimensiones\Data Conversion Tiempo.Outputs[Data Conversion Output].Columns[TimeID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensiones\Lookup Tiempo.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-IVI69M9.DW_NORTHWIND]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-IVI69M9.DW_NORTHWIND]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dimensiones\Lookup Tiempo.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dimensiones\Lookup Tiempo.Inputs[Lookup Input].Columns[TimeID]"
+                      cachedDataType="i4"
+                      cachedName="TimeID"
+                      lineageId="Package\Dimensiones\Data Conversion Tiempo.Outputs[Data Conversion Output].Columns[TimeID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">TimeID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Dimensiones\Lookup Tiempo.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Dimensiones\Lookup Tiempo.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Dimensiones\Lookup Tiempo.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3884,7 +3883,7 @@ where [refTable].[ProductID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dimensiones\OLE DB Command 4.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Param_1">
                       <properties>
                         <property
@@ -3895,7 +3894,7 @@ where [refTable].[ProductID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dimensiones\OLE DB Command 4.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Param_2">
                       <properties>
                         <property
@@ -3906,7 +3905,7 @@ where [refTable].[ProductID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dimensiones\OLE DB Command 4.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Param_3">
                       <properties>
                         <property
@@ -3917,7 +3916,7 @@ where [refTable].[ProductID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Dimensiones\OLE DB Command 4.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="dbDate"
+                      dataType="i4"
                       name="Param_4">
                       <properties>
                         <property
@@ -4000,99 +3999,99 @@ where [refTable].[ProductID] = ?</property>
           <paths>
             <path
               refId="Package\Dimensiones.Paths[Data Conversion Output]"
-              endId="Package\Dimensiones\Lookup Producto.Inputs[Lookup Input]"
-              name="Data Conversion Output"
-              startId="Package\Dimensiones\Data Conversion Producto.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Data Conversion Output1]"
-              endId="Package\Dimensiones\Lookup.Inputs[Lookup Input]"
+              endId="Package\Dimensiones\Lookup Tiempo.Inputs[Lookup Input]"
               name="Data Conversion Output"
               startId="Package\Dimensiones\Data Conversion Tiempo.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Dimensiones.Paths[Data Conversion Output2]"
-              endId="Package\Dimensiones\Lookup Lugar.Inputs[Lookup Input]"
-              name="Data Conversion Output"
-              startId="Package\Dimensiones\Data Conversion Lugar.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Data Conversion Output3]"
-              endId="Package\Dimensiones\Lookup Empleado.Inputs[Lookup Input]"
-              name="Data Conversion Output"
-              startId="Package\Dimensiones\Data Conversion Empleado.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Data Conversion Output4]"
+              refId="Package\Dimensiones.Paths[Data Conversion Output1]"
               endId="Package\Dimensiones\Lookup Customer.Inputs[Lookup Input]"
               name="Data Conversion Output"
               startId="Package\Dimensiones\Data Conversion Customer.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Dimensiones.Paths[Lookup Match Output3]"
-              endId="Package\Dimensiones\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Lookup Match Output"
-              startId="Package\Dimensiones\Lookup Producto.Outputs[Lookup Match Output]" />
+              refId="Package\Dimensiones.Paths[Data Conversion Output2]"
+              endId="Package\Dimensiones\Lookup Producto.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Dimensiones\Data Conversion Producto.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Dimensiones.Paths[Lookup Match Output2]"
+              refId="Package\Dimensiones.Paths[Data Conversion Output3]"
+              endId="Package\Dimensiones\Lookup Lugar.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Dimensiones\Data Conversion Lugar.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[Data Conversion Output4]"
+              endId="Package\Dimensiones\Lookup Empleado.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Dimensiones\Data Conversion Empleado.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[Lookup Match Output3]"
               endId="Package\Dimensiones\OLE DB Command 2.Inputs[OLE DB Command Input]"
               name="Lookup Match Output"
               startId="Package\Dimensiones\Lookup Customer.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Dimensiones.Paths[Lookup Match Output4]"
-              endId="Package\Dimensiones\OLE DB Command 1.Inputs[OLE DB Command Input]"
-              name="Lookup Match Output"
-              startId="Package\Dimensiones\Lookup Empleado.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Lookup Match Output]"
-              endId="Package\Dimensiones\OLE DB Command 4.Inputs[OLE DB Command Input]"
-              name="Lookup Match Output"
-              startId="Package\Dimensiones\Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Lookup Match Output1]"
+              refId="Package\Dimensiones.Paths[Lookup Match Output2]"
               endId="Package\Dimensiones\OLE DB Command 3.Inputs[OLE DB Command Input]"
               name="Lookup Match Output"
               startId="Package\Dimensiones\Lookup Lugar.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\Dimensiones.Paths[Lookup Match Output4]"
+              endId="Package\Dimensiones\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Dimensiones\Lookup Producto.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[Lookup Match Output]"
+              endId="Package\Dimensiones\OLE DB Command 4.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[Lookup Match Output1]"
+              endId="Package\Dimensiones\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Dimensiones\Lookup Empleado.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\Dimensiones.Paths[Lookup No Match Output]"
-              endId="Package\Dimensiones\DW_Dim_Lugar.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Dimensiones\Lookup Lugar.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Lookup No Match Output1]"
-              endId="Package\Dimensiones\DW_Dim_Empleado.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Dimensiones\Lookup Empleado.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Lookup No Match Output2]"
-              endId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input]"
-              name="Lookup No Match Output"
-              startId="Package\Dimensiones\Lookup.Outputs[Lookup No Match Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[Lookup No Match Output3]"
               endId="Package\Dimensiones\DW_Dim_Producto.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Dimensiones\Lookup Producto.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Dimensiones.Paths[Lookup No Match Output4]"
+              refId="Package\Dimensiones.Paths[Lookup No Match Output1]"
               endId="Package\Dimensiones\DW_Dim_Customer.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Dimensiones\Lookup Customer.Outputs[Lookup No Match Output]" />
             <path
+              refId="Package\Dimensiones.Paths[Lookup No Match Output2]"
+              endId="Package\Dimensiones\DW_Dim_Lugar.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Dimensiones\Lookup Lugar.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[Lookup No Match Output3]"
+              endId="Package\Dimensiones\DW_Dim_Tiempo.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Dimensiones\Lookup Tiempo.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[Lookup No Match Output4]"
+              endId="Package\Dimensiones\DW_Dim_Empleado.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Dimensiones\Lookup Empleado.Outputs[Lookup No Match Output]" />
+            <path
               refId="Package\Dimensiones.Paths[OLE DB Source Output3]"
-              endId="Package\Dimensiones\Data Conversion Tiempo.Inputs[Data Conversion Input]"
-              name="OLE DB Source Output"
-              startId="Package\Dimensiones\Dim_Tiempo.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[OLE DB Source Output]"
-              endId="Package\Dimensiones\Data Conversion Empleado.Inputs[Data Conversion Input]"
-              name="OLE DB Source Output"
-              startId="Package\Dimensiones\Dim_Empleado.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Dimensiones.Paths[OLE DB Source Output1]"
               endId="Package\Dimensiones\Data Conversion Customer.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Dimensiones\Dim_Customer.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Dimensiones.Paths[OLE DB Source Output2]"
+              refId="Package\Dimensiones.Paths[OLE DB Source Output]"
               endId="Package\Dimensiones\Data Conversion Lugar.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\Dimensiones\Dim_Lugar.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[OLE DB Source Output1]"
+              endId="Package\Dimensiones\Data Conversion Tiempo.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dimensiones\Dim_Tiempo.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Dimensiones.Paths[OLE DB Source Output2]"
+              endId="Package\Dimensiones\Data Conversion Empleado.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dimensiones\Dim_Empleado.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Dimensiones.Paths[OLE DB Source Output4]"
               endId="Package\Dimensiones\Data Conversion Producto.Inputs[Data Conversion Input]"
@@ -5246,17 +5245,17 @@ where [refTable].[HECHOSID] = ?</property>
           Id="Package\Dimensiones\OLE DB Command 4"
           TopLeft="2162.5,377.5" />
         <NodeLayout
-          Size="113,42"
-          Id="Package\Dimensiones\Lookup"
-          TopLeft="2030,283.75" />
+          Size="161,42"
+          Id="Package\Dimensiones\Lookup Customer"
+          TopLeft="991,279" />
         <NodeLayout
           Size="150,42"
           Id="Package\Dimensiones\Dim_Empleado"
           TopLeft="429,58" />
         <NodeLayout
-          Size="143,42"
-          Id="Package\Dimensiones\Lookup Lugar"
-          TopLeft="1463.73043559433,274.25" />
+          Size="158,42"
+          Id="Package\Dimensiones\Lookup Producto"
+          TopLeft="174,275" />
         <NodeLayout
           Size="206,42"
           Id="Package\Dimensiones\Data Conversion Empleado"
@@ -5286,13 +5285,13 @@ where [refTable].[HECHOSID] = ?</property>
           Id="Package\Dimensiones\Dim_Lugar"
           TopLeft="1443,68" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\Dimensiones\Lookup Producto"
-          TopLeft="174,275" />
+          Size="151,42"
+          Id="Package\Dimensiones\Lookup Tiempo"
+          TopLeft="2030,283.75" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\Dimensiones\Lookup Customer"
-          TopLeft="991,279" />
+          Size="163,42"
+          Id="Package\Dimensiones\Lookup Empleado"
+          TopLeft="540,284" />
         <NodeLayout
           Size="172,42"
           Id="Package\Dimensiones\DW_Dim_Empleado"
@@ -5306,13 +5305,13 @@ where [refTable].[HECHOSID] = ?</property>
           Id="Package\Dimensiones\DW_Dim_Lugar"
           TopLeft="1447.75,378.75" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Dimensiones\Lookup Empleado"
-          TopLeft="540,284" />
+          Size="143,42"
+          Id="Package\Dimensiones\Lookup Lugar"
+          TopLeft="1463.73043559433,274.25" />
         <NodeLayout
           Size="166,42"
           Id="Package\Dimensiones\OLE DB Command"
-          TopLeft="341.75,376.75" />
+          TopLeft="341.75,384.75" />
         <NodeLayout
           Size="161,42"
           Id="Package\Dimensiones\DW_Dim_Tiempo"
@@ -5377,74 +5376,6 @@ where [refTable].[HECHOSID] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dimensiones.Paths[OLE DB Source Output3]"
-          TopLeft="2052.25,115.638888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.5,79.3611111111111"
-              Start="0,0"
-              End="40.5,71.8611111111111">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.6805555555556" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.6805555555556"
-                    Point2="0,39.6805555555556"
-                    Point3="4,39.6805555555556" />
-                  <mssgle:LineSegment
-                    End="36.5,39.6805555555556" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.5,39.6805555555556"
-                    Point2="40.5,39.6805555555556"
-                    Point3="40.5,43.6805555555556" />
-                  <mssgle:LineSegment
-                    End="40.5,71.8611111111111" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[OLE DB Source Output2]"
-          TopLeft="1508,110">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35,77"
-              Start="0,0"
-              End="35,69.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="4,38.5" />
-                  <mssgle:LineSegment
-                    End="31,38.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="31,38.5"
-                    Point2="35,38.5"
-                    Point3="35,42.5" />
-                  <mssgle:LineSegment
-                    End="35,69.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[OLE DB Source Output1]"
           TopLeft="1051,110">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5478,7 +5409,7 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[OLE DB Source Output]"
+          Id="Package\Dimensiones.Paths[OLE DB Source Output2]"
           TopLeft="504,100">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5512,103 +5443,75 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Dimensiones.Paths[OLE DB Source Output1]"
+          TopLeft="2052.25,115.638888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.5,79.3611111111111"
+              Start="0,0"
+              End="40.5,71.8611111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6805555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.6805555555556"
+                    Point2="0,39.6805555555556"
+                    Point3="4,39.6805555555556" />
+                  <mssgle:LineSegment
+                    End="36.5,39.6805555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.5,39.6805555555556"
+                    Point2="40.5,39.6805555555556"
+                    Point3="40.5,43.6805555555556" />
+                  <mssgle:LineSegment
+                    End="40.5,71.8611111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensiones.Paths[OLE DB Source Output]"
+          TopLeft="1508,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,77"
+              Start="0,0"
+              End="35,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="31,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,38.5"
+                    Point2="35,38.5"
+                    Point3="35,42.5" />
+                  <mssgle:LineSegment
+                    End="35,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Dimensiones.Paths[Lookup No Match Output4]"
-          TopLeft="1046,321">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="29.5,59"
-              Start="0,0"
-              End="29.5,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.9483394833948" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.9483394833948"
-                    Point2="0,23.9483394833948"
-                    Point3="4,23.9483394833948" />
-                  <mssgle:LineSegment
-                    End="25.5,23.9483394833948" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.5,23.9483394833948"
-                    Point2="29.5,23.9483394833948"
-                    Point3="29.5,27.9483394833948" />
-                  <mssgle:LineSegment
-                    End="29.5,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-41.05638671875,28.9483394833948,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup No Match Output3]"
-          TopLeft="225.5,317">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,20.9453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup No Match Output2]"
-          TopLeft="2086.5,325.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-52.25,49.5"
-              Start="0,0"
-              End="-52.25,42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.75"
-                    Point2="0,24.75"
-                    Point3="-4,24.75" />
-                  <mssgle:LineSegment
-                    End="-48.25,24.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-48.25,24.75"
-                    Point2="-52.25,24.75"
-                    Point3="-52.25,28.75" />
-                  <mssgle:LineSegment
-                    End="-52.25,42" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-81.93138671875,29.75,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup No Match Output1]"
           TopLeft="595.666666666667,326">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5644,7 +5547,43 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup No Match Output]"
+          Id="Package\Dimensiones.Paths[Lookup No Match Output3]"
+          TopLeft="2081.66666666667,325.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-47.4166666666665,49.5"
+              Start="0,0"
+              End="-47.4166666666665,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1114023591087" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1114023591087"
+                    Point2="0,20.1114023591087"
+                    Point3="-4,20.1114023591087" />
+                  <mssgle:LineSegment
+                    End="-43.4166666666665,20.1114023591087" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.4166666666665,20.1114023591087"
+                    Point2="-47.4166666666665,20.1114023591087"
+                    Point3="-47.4166666666665,24.1114023591087" />
+                  <mssgle:LineSegment
+                    End="-47.4166666666665,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-79.5147200520832,25.1114023591087,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensiones.Paths[Lookup No Match Output2]"
           TopLeft="1512.73043559433,316.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5680,79 +5619,103 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup Match Output4]"
-          TopLeft="647.333333333333,326">
+          Id="Package\Dimensiones.Paths[Lookup No Match Output1]"
+          TopLeft="1046,321">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="193.166666666667,57"
+              EndConnector="29.5,59"
               Start="0,0"
-              End="193.166666666667,49.5">
+              End="29.5,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.1324422843256" />
+                    End="0,19.9483394833948" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.1324422843256"
-                    Point2="0,23.1324422843256"
-                    Point3="4,23.1324422843256" />
+                    Point1="0,19.9483394833948"
+                    Point2="0,23.9483394833948"
+                    Point3="4,23.9483394833948" />
                   <mssgle:LineSegment
-                    End="189.166666666667,23.1324422843256" />
+                    End="25.5,23.9483394833948" />
                   <mssgle:CubicBezierSegment
-                    Point1="189.166666666667,23.1324422843256"
-                    Point2="193.166666666667,23.1324422843256"
-                    Point3="193.166666666667,27.1324422843256" />
+                    Point1="25.5,23.9483394833948"
+                    Point2="29.5,23.9483394833948"
+                    Point3="29.5,27.9483394833948" />
                   <mssgle:LineSegment
-                    End="193.166666666667,49.5" />
+                    End="29.5,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="48.3919466145835,28.1324422843256,96.3827734375,11.609375"
+              BoundingBox="-41.05638671875,28.9483394833948,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensiones.Paths[Lookup No Match Output]"
+          TopLeft="225.5,317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,20.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensiones.Paths[Lookup Match Output4]"
+          TopLeft="278,317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.75,67.75"
+              Start="0,0"
+              End="146.75,60.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5075187969925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5075187969925"
+                    Point2="0,27.5075187969925"
+                    Point3="4,27.5075187969925" />
+                  <mssgle:LineSegment
+                    End="142.75,27.5075187969925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142.75,27.5075187969925"
+                    Point2="146.75,27.5075187969925"
+                    Point3="146.75,31.5075187969925" />
+                  <mssgle:LineSegment
+                    End="146.75,60.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="25.18361328125,32.5075187969925,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dimensiones.Paths[Lookup Match Output3]"
-          TopLeft="278,317">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="146.75,59.75"
-              Start="0,0"
-              End="146.75,52.25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2593984962406" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2593984962406"
-                    Point2="0,24.2593984962406"
-                    Point3="4,24.2593984962406" />
-                  <mssgle:LineSegment
-                    End="142.75,24.2593984962406" />
-                  <mssgle:CubicBezierSegment
-                    Point1="142.75,24.2593984962406"
-                    Point2="146.75,24.2593984962406"
-                    Point3="146.75,28.2593984962406" />
-                  <mssgle:LineSegment
-                    End="146.75,52.25" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="25.18361328125,29.2593984962406,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup Match Output2]"
           TopLeft="1097,321">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5788,7 +5751,7 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup Match Output1]"
+          Id="Package\Dimensiones.Paths[Lookup Match Output2]"
           TopLeft="1557.73043559433,316.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5824,65 +5787,79 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Lookup Match Output]"
-          TopLeft="2104,325.75">
+          Id="Package\Dimensiones.Paths[Lookup Match Output1]"
+          TopLeft="647.333333333333,326">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="146,51.75"
+              EndConnector="193.166666666667,57"
               Start="0,0"
-              End="146,44.25">
+              End="193.166666666667,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.1335078534031" />
+                    End="0,19.1324422843256" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.1335078534031"
-                    Point2="0,21.1335078534031"
-                    Point3="4,21.1335078534031" />
+                    Point1="0,19.1324422843256"
+                    Point2="0,23.1324422843256"
+                    Point3="4,23.1324422843256" />
                   <mssgle:LineSegment
-                    End="142,21.1335078534031" />
+                    End="189.166666666667,23.1324422843256" />
                   <mssgle:CubicBezierSegment
-                    Point1="142,21.1335078534031"
-                    Point2="146,21.1335078534031"
-                    Point3="146,25.1335078534031" />
+                    Point1="189.166666666667,23.1324422843256"
+                    Point2="193.166666666667,23.1324422843256"
+                    Point3="193.166666666667,27.1324422843256" />
                   <mssgle:LineSegment
-                    End="146,44.25" />
+                    End="193.166666666667,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="24.80861328125,26.1335078534031,96.3827734375,11.609375"
+              BoundingBox="48.3919466145835,28.1324422843256,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Data Conversion Output4]"
-          TopLeft="1067.75,232">
+          Id="Package\Dimensiones.Paths[Lookup Match Output]"
+          TopLeft="2129.33333333333,325.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="120.666666666667,51.75"
               Start="0,0"
-              End="0,39.5">
+              End="120.666666666667,44.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,17.0255570117955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.0255570117955"
+                    Point2="0,21.0255570117955"
+                    Point3="4,21.0255570117955" />
+                  <mssgle:LineSegment
+                    End="116.666666666667,21.0255570117955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.666666666667,21.0255570117955"
+                    Point2="120.666666666667,21.0255570117955"
+                    Point3="120.666666666667,25.0255570117955" />
+                  <mssgle:LineSegment
+                    End="120.666666666667,44.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="12.1419466145833,26.0255570117955,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Data Conversion Output3]"
+          Id="Package\Dimensiones.Paths[Data Conversion Output4]"
           TopLeft="571,232">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5916,7 +5893,7 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Data Conversion Output2]"
+          Id="Package\Dimensiones.Paths[Data Conversion Output3]"
           TopLeft="1539.11521779717,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5938,29 +5915,7 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dimensiones.Paths[Data Conversion Output1]"
-          TopLeft="2089.625,237">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.75"
-              Start="0,0"
-              End="0,39.25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.25" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dimensiones.Paths[Data Conversion Output]"
+          Id="Package\Dimensiones.Paths[Data Conversion Output2]"
           TopLeft="243.5,225">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5993,34 +5948,67 @@ where [refTable].[HECHOSID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensiones.Paths[Data Conversion Output1]"
+          TopLeft="1067.75,232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dimensiones.Paths[Data Conversion Output]"
+          TopLeft="2092.75,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.75,46.75"
+              Start="0,0"
+              End="12.75,39.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.375"
+                    Point2="0,23.375"
+                    Point3="4,23.375" />
+                  <mssgle:LineSegment
+                    End="8.75,23.375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.75,23.375"
+                    Point2="12.75,23.375"
+                    Point3="12.75,27.375" />
+                  <mssgle:LineSegment
+                    End="12.75,39.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DIM_TIEMPO]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Lookup Lugar">
+    design-time-name="Package\Dimensiones\Lookup Customer">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6030,7 +6018,7 @@ where [refTable].[HECHOSID] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DIM_LUGAR]</Value>
+          type="q3:string">[dbo].[DIM_CLIENTES]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -6064,19 +6052,6 @@ where [refTable].[HECHOSID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\DW_Dim_Producto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Dimensiones\Dim_Lugar">
     <Properties>
       <Property>
@@ -6085,7 +6060,7 @@ where [refTable].[HECHOSID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Lookup Producto">
+    design-time-name="Package\Dimensiones\Lookup Tiempo">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6095,7 +6070,7 @@ where [refTable].[HECHOSID] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DIM_PRODUCTO]</Value>
+          type="q3:string">[dbo].[DIM_TIEMPO]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -6108,7 +6083,7 @@ where [refTable].[HECHOSID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Lookup Customer">
+    design-time-name="Package\Dimensiones\Lookup Empleado">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6118,7 +6093,7 @@ where [refTable].[HECHOSID] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DIM_CLIENTES]</Value>
+          type="q3:string">[dbo].[DIM_EMPLEADOS]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -6157,7 +6132,7 @@ where [refTable].[HECHOSID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dimensiones\Lookup Empleado">
+    design-time-name="Package\Dimensiones\Lookup Lugar">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -6167,7 +6142,7 @@ where [refTable].[HECHOSID] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DIM_EMPLEADOS]</Value>
+          type="q3:string">[dbo].[DIM_LUGAR]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -6214,9 +6189,17 @@ where [refTable].[HECHOSID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="175,42"
+          Id="Package\Hechos\OLE DB Command 1"
+          TopLeft="708.888888888889,448.888888888889" />
+        <NodeLayout
           Size="188,42"
           Id="Package\Hechos\DW_HECHOS_ORDERS"
           TopLeft="445,442.555555555556" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Hechos\Lookup"
+          TopLeft="485.555555555556,346.666666666667" />
         <NodeLayout
           Size="119,42"
           Id="Package\Hechos\DIM DW"
@@ -6226,57 +6209,41 @@ where [refTable].[HECHOSID] = ?</property>
           Id="Package\Hechos\Data Conversion"
           TopLeft="468.888888888889,256.666666666667" />
         <EdgeLayout
-          Id="Package\Hechos.Paths[OLE DB Source Output]"
-          TopLeft="545.805555555555,150.222222222222">
+          Id="Package\Hechos.Paths[Lookup No Match Output]"
+          TopLeft="524.555555555556,388.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,106.444444444444"
+              EndConnector="14.444444444444,53.888888888889"
               Start="0,0"
-              End="0,98.9444444444444">
+              End="14.444444444444,46.388888888889">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,98.9444444444444" />
+                    End="0,18.0069808027924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0069808027924"
+                    Point2="0,22.0069808027924"
+                    Point3="4,22.0069808027924" />
+                  <mssgle:LineSegment
+                    End="10.444444444444,22.0069808027924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.444444444444,22.0069808027924"
+                    Point2="14.444444444444,22.0069808027924"
+                    Point3="14.444444444444,26.0069808027924" />
+                  <mssgle:LineSegment
+                    End="14.444444444444,46.388888888889" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.584164496528,27.0069808027924,111.6127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Hechos\Lookup"
-          TopLeft="485.555555555556,346.666666666667" />
-        <EdgeLayout
-          Id="Package\Hechos.Paths[Data Conversion Output]"
-          TopLeft="544.472222222222,298.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.0000000000001"
-              Start="0,0"
-              End="0,40.5000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.5000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Hechos\OLE DB Command 1"
-          TopLeft="708.888888888889,448.888888888889" />
         <EdgeLayout
           Id="Package\Hechos.Paths[Lookup Match Output]"
           TopLeft="559.555555555556,388.666666666667">
@@ -6314,38 +6281,50 @@ where [refTable].[HECHOSID] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Hechos.Paths[Lookup No Match Output]"
-          TopLeft="524.555555555556,388.666666666667">
+          Id="Package\Hechos.Paths[Data Conversion Output]"
+          TopLeft="544.472222222222,298.666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.444444444444,53.888888888889"
+              EndConnector="0,48.0000000000001"
               Start="0,0"
-              End="14.444444444444,46.388888888889">
+              End="0,40.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.0069808027924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.0069808027924"
-                    Point2="0,22.0069808027924"
-                    Point3="4,22.0069808027924" />
-                  <mssgle:LineSegment
-                    End="10.444444444444,22.0069808027924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.444444444444,22.0069808027924"
-                    Point2="14.444444444444,22.0069808027924"
-                    Point3="14.444444444444,26.0069808027924" />
-                  <mssgle:LineSegment
-                    End="14.444444444444,46.388888888889" />
+                    End="0,40.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.584164496528,27.0069808027924,111.6127734375,11.609375"
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Hechos.Paths[OLE DB Source Output]"
+          TopLeft="545.805555555555,150.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106.444444444444"
+              Start="0,0"
+              End="0,98.9444444444444">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.9444444444444" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
